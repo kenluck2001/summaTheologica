@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Summa Theologiae Citation Search</title>
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --accent-color: #0284c7;
+            --accent-light: #f0f9ff;
+            --border-color: #e2e8f0;
+            --text-main: #334155;
+            --text-heading: #0f172a;
+            --code-bg: #f8fafc;
+            --highlight-bg: #fef3c7;
+            --highlight-border: #f59e0b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-main);
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        h1 {
+            color: var(--text-heading);
+            font-size: 2.25rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 12px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: var(--text-heading);
+            font-size: 1.5rem;
+            margin-top: 36px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            color: var(--text-heading);
+            font-size: 1.2rem;
+            margin-top: 24px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        code {
+            background-color: var(--code-bg);
+            color: #091e42;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        .callout {
+            background-color: var(--accent-light);
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .syntax-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-vol { background: #e0e7ff; color: #3730a3; }
+        .badge-q { background: #dcfce7; color: #166534; }
+        .badge-art { background: #fef3c7; color: #92400e; }
+        .badge-sec { background: #fce7f3; color: #9d174d; }
+
+        .search-example {
+            background-color: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .search-input {
+            font-family: monospace;
+            font-weight: bold;
+            color: #d97706;
+        }
+
+        .search-dest {
+            color: var(--text-main);
+            margin-top: 4px;
+            font-size: 0.95rem;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Understanding Citation Search in the <i>Summa Theologiae</i></h1>
+    
+    <p>
+        The <i>Summa Theologiae</i> (ST) by St. Thomas Aquinas is structured in a strict hierarchical order. The <strong>Citation Search engine</strong> allows users to navigate directly to precise sections of the text—down to specific structural elements like thesis statements or individual objections—using standard theological abbreviations and flexible formatting styles.
+    </p>
+
+    <!-- SECTION 1: VOLUME STRUCTURE -->
+    <h2>1. Understanding the Four Volumes</h2>
+    <p>
+        The <i>Summa</i> is partitioned into four primary volume sections. The search system maps structural Latin abbreviations as well as descriptive thematic titles to identify each volume:
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Volume Code</th>
+                <th>Latin / Structural Title</th>
+                <th>Thematic Scope Description</th>
+                <th>Accepted Variants</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="syntax-badge badge-vol">Volume I</span></td>
+                <td>First Part (FP)</td>
+                <td>God, Creation, and Divine Government</td>
+                <td><code>I</code>, <code>FP</code>, <code>1</code></td>
+            </tr>
+            <tr>
+                <td><span class="syntax-badge badge-vol">Volume I-II</span></td>
+                <td>First Part of the Second Part (FS)</td>
+                <td>Human Action, Virtues, and the Moral Law</td>
+                <td><code>I-II</code>, <code>FS</code>, <code>1-2</code>, <code>I_II</code></td>
+            </tr>
+            <tr>
+                <td><span class="syntax-badge badge-vol">Volume II-II</span></td>
+                <td>Second Part of the Second Part (SS)</td>
+                <td>The Particular Virtues and Vices</td>
+                <td><code>II-II</code>, <code>SS</code>, <code>2-2</code>, <code>II_II</code></td>
+            </tr>
+            <tr>
+                <td><span class="syntax-badge badge-vol">Volume III</span></td>
+                <td>Third Part (TP)</td>
+                <td>Christ, the Sacraments, and Eschatology</td>
+                <td><code>III</code>, <code>TP</code>, <code>3</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Structural vs. Thematic System Mapping</div>
+        <p>
+            The search engine supports two mapping dictionaries internally:
+        </p>
+        <ul>
+            <li><strong>Structural Designations:</strong> Uses traditional scholastic nomenclature such as <code>FP</code> (<i>Prima Pars</i>), <code>FS</code> (<i>Prima Secundae</i>), <code>SS</code> (<i>Secunda Secundae</i>), and <code>TP</code> (<i>Tertia Pars</i>).</li>
+            <li><strong>Thematic Descriptions:</strong> Connects volume indexes directly to their theological subject matter (e.g., mapping Volume I-II to <i>Human Action, Virtues, and the Moral Law</i>).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2: SYNTAX STRUCTURE -->
+    <h2>2. Anatomy of a Citation Search Query</h2>
+    <p>
+        A citation query consists of up to four hierarchical components:
+    </p>
+    
+    <div style="text-align: center; padding: 15px; background: #f8fafc; border-radius: 8px; margin: 15px 0;">
+        <code style="font-size: 1.1em; background: none; border: none;">
+            <span style="color: #3730a3;">[ST Prefix + Volume]</span>, 
+            <span style="color: #166534;">[Question]</span>, 
+            <span style="color: #92400e;">[Article]</span>, 
+            <span style="color: #9d174d;">[Target Section]</span>
+        </code>
+    </div>
+
+    <ul>
+        <li><strong>ST Prefix & Volume:</strong> Mandatory anchor (e.g., <code>ST I</code> or <code>ST FP</code>).</li>
+        <li><strong>Question (Q):</strong> Specifies the overarching question topic (e.g., <code>Q. 2</code> or <code>q. 90</code>).</li>
+        <li><strong>Article (Art):</strong> Specifies the sub-inquiry under discussion (e.g., <code>Art. 3</code> or <code>a. 1</code>).</li>
+        <li><strong>Target Section (Optional):</strong> Drills down to specific structural elements inside an article:
+            <ul>
+                <li><strong>Objections:</strong> <code>obj. 2</code> (Counter-arguments being addressed)</li>
+                <li><strong>Authority (Sed Contra):</strong> <code>sc</code>, <code>s.c.</code>, <code>authority</code> ("On the contrary...")</li>
+                <li><strong>Thesis (Respondeo):</strong> <code>resp</code>, <code>body</code>, <code>c.</code>, <code>thesis</code> ("I answer that...")</li>
+                <li><strong>Rebuttals:</strong> <code>ad 1</code>, <code>reply 1</code> (Replies to specific objections)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- SECTION 3: REPRESENTATIVE EXAMPLES -->
+    <h2>3. Representative Search Query Examples</h2>
+    <p>
+        The parser accepts multiple formatting styles, ranging from formal longhand notation to shorthand dot-notation.
+    </p>
+
+    <h3>Level 1: Question-Level Queries</h3>
+    <p>Retrieve all articles under a specific Question.</p>
+
+    <div class="search-example">
+        <div class="search-input">ST I, Q. 2 &nbsp;|&nbsp; ST FP, q. 2 &nbsp;|&nbsp; ST I, 2</div>
+        <div class="search-dest">➔ <strong>Target:</strong> Volume I (First Part), Question 2 (The Existence of God).</div>
+    </div>
+
+    <h3>Level 2: Article-Level Queries</h3>
+    <p>Navigate directly to a specific Article within a Question.</p>
+
+    <div class="search-example">
+        <div class="search-input">ST I, Q. 2, Art. 3 &nbsp;|&nbsp; ST FP, q. 2, a. 3 &nbsp;|&nbsp; ST I.2.3</div>
+        <div class="search-dest">➔ <strong>Target:</strong> Volume I, Question 2, Article 3 ("Whether God exists?" - The Five Ways).</div>
+    </div>
+
+    <h3>Level 3: Section-Targeted Queries</h3>
+    <p>Target specific structural components inside an Article.</p>
+
+    <h4>A. Targeting the Thesis / Body (Respondeo)</h4>
+    <div class="search-example">
+        <div class="search-input">ST I, Q. 2, Art. 3, resp. &nbsp;|&nbsp; ST FP, q. 2, a. 3, body &nbsp;|&nbsp; ST I, 2, 3, c. &nbsp;|&nbsp; ST I, Q. 90, Art. 2, thesis</div>
+        <div class="search-dest">➔ <strong>Target:</strong> Focuses directly on Aquinas's main affirmative position (<i>Respondeo / Body / Corpus</i>).</div>
+    </div>
+
+    <h4>B. Targeting Objections</h4>
+    <div class="search-example">
+        <div class="search-input">ST I-II, Q. 90, Art. 1, obj. 2 &nbsp;|&nbsp; ST FS, q. 90, a. 1, obj. 2 &nbsp;|&nbsp; ST I-II, 90, 1, obj. 2</div>
+        <div class="search-dest">➔ <strong>Target:</strong> Focuses specifically on Objection #2 regarding the nature of Law in Volume I-II.</div>
+    </div>
+
+    <h4>C. Targeting Rebuttals (Replies to Objections)</h4>
+    <div class="search-example">
+        <div class="search-input">ST II-II, Q. 23, Art. 1, ad 1 &nbsp;|&nbsp; ST SS, q. 23, a. 1, ad 1 &nbsp;|&nbsp; ST II-II, 23, 1, ad 1</div>
+        <div class="search-dest">➔ <strong>Target:</strong> Focuses on Reply to Objection 1 concerning Charity in Volume II-II.</div>
+    </div>
+
+    <h4>D. Targeting Authority (On the Contrary / Sed Contra)</h4>
+    <div class="search-example">
+        <div class="search-input">ST I, Q. 2, Art. 3, sc &nbsp;|&nbsp; ST FP, q. 2, a. 3, s.c. &nbsp;|&nbsp; ST I, 2, 3, sc &nbsp;|&nbsp; ST I, Q. 90, Art. 2, authority</div>
+        <div class="search-dest">➔ <strong>Target:</strong> Focuses on the counter-authority quotation (<i>Sed Contra</i>) preceding the main argument.</div>
+    </div>
+
+    <!-- SECTION 4: TIPS -->
+    <h2>4. Search Engine Features & Flexibility</h2>
+    <ul>
+        <li><strong>Case Insensitive:</strong> Queries like <code>st fp, q. 2, a. 3</code> and <code>ST FP, Q. 2, A. 3</code> yield identical results.</li>
+        <li><strong>Punctuation Invariant:</strong> You can use spaces, commas, or dots (e.g., <code>ST I.2.3</code> vs. <code>ST I, 2, 3</code>).</li>
+        <li><strong>Prefix Optionality:</strong> Including <code>ST</code> is recommended, but short-code designations like <code>FP 2.3</code> or <code>FS 90.1</code> are automatically normalized.</li>
+    </ul>
+
+    <div class="footer">
+        <i>Summa Theologiae</i> Citation Search System Documentation
+    </div>
+</div>
+
+</body>
+</html>
